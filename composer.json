@@ -1,5 +1,5 @@
 {
-	"name": "robgridley/zebra",
+	"name": "wingsergey/zebra",
 	"description": "PHP ZPL builder, image conversion and a basic client for network-connected Zebra label printers.",
 	"keywords": ["zebra", "zpl", "image"],
 	"license": "MIT",
