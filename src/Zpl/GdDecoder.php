@@ -10,7 +10,7 @@ class GdDecoder implements Decoder
     /**
      * The GD image resource.
      *
-     * @var resource
+     * @var resource|\GdImage
      */
     protected $image;
 
@@ -53,6 +53,9 @@ class GdDecoder implements Decoder
         if (is_resource($image)) {
             return get_resource_type($image) === 'gd';
         }
+        if ($image instanceof \GdImage) {
+            return true;
+        }
 
         return false;
     }
@@ -77,7 +80,9 @@ class GdDecoder implements Decoder
      */
     public static function fromPath(string $path): self
     {
-        return static::fromString(file_get_contents($path));
+        $string = file_get_contents($path);
+
+        return static::fromString($string);
     }
 
     /**
